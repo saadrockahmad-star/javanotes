@@ -1,0 +1,77 @@
+
+
+
+class Linkedlist{
+
+	Head node;
+	Tail Node:
+	int size;
+
+
+	Linkedlist(){
+
+	head=tail=null;
+	}
+
+   addfirst()
+
+
+1->3->5>-8->22 // linked list
+ 
+find 8
+
+class Node{
+
+	int data;
+	Node next;
+
+	Node(int data){
+	this.data=data;
+	}
+
+}
+class LinkedList(){
+
+	Node head;
+	Node tail'
+	int size;
+
+
+
+find(int data){
+
+Node temp=head;
+for(int i=0;i<size-1;i++){
+
+if(node.data==data)
+	return node.data;
+}
+
+temp=temp.next;
+
+}
+
+
+
+class Test{
+	public static void main(String args []){
+
+String  list={"swiss" chocolate is awesome"};tempor
+
+
+Map<String,Interg> v=list.stream().filter(c->"aeiou".indexOf(c)!=-1).collect(Collectors.grupingBy(c->c,Collectors.counting()));
+
+Option<Map.Entry<String,Integer> vowle=.entryset().stream().max(Map.entry.compareByValue());
+
+
+if(vowel.ispresent()){
+
+System.out.println("max count"=vowel.get().getValkey());
+}
+
+}
+
+
+      
+
+

@@ -1,0 +1,45 @@
+// java.lang.String class ke andar yeh method hota hai
+
+public String toUpperCase() {
+
+    // Step 1: pehla lowercase char dhundo
+    int firstLower;
+
+    for (firstLower = 0; firstLower < this.length(); firstLower++) {
+
+        char c = this.charAt(firstLower); // har char uthao
+
+        // kya yeh lowercase hai?
+        if (c >= 'a' && c <= 'z') {
+            break; // pehla lowercase mila — ruk jao
+        }
+    }
+
+    // Step 2: loop poora hua — matlab koi lowercase nahi mila
+    if (firstLower == this.length()) {
+        return this; // ✅ SAME object return — no new object!
+    }
+
+    // Step 3: lowercase mila — ab convert karo
+    char[] result = new char[this.length()];
+
+    // jo chars pehle se uppercase the — copy karo seedha
+    for (int i = 0; i < firstLower; i++) {
+        result[i] = this.charAt(i); // copy as it is
+    }
+
+    // baaki chars convert karo
+    for (int i = firstLower; i < this.length(); i++) {
+
+        char c = this.charAt(i);
+
+        if (c >= 'a' && c <= 'z') {
+            result[i] = (char) (c - 32); // lowercase → uppercase
+        } else {
+            result[i] = c; // number, space, symbol → same
+        }
+    }
+
+    // Step 4: naya String object return karo
+    return new String(result);
+}
