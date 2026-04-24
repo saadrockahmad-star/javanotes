@@ -1,0 +1,30 @@
+// Spring source code mein
+public interface WebClient {
+    
+    // static factory method — implementation create karta hai
+    static WebClient create() {
+        return new DefaultWebClient(...);
+    }
+
+    static WebClient create(String baseUrl) {
+        return new DefaultWebClient(...);
+    }
+
+    static Builder builder() {
+        return new DefaultWebClientBuilder();
+    }
+
+    // methods defined in interface
+    RequestHeadersUriSpec<?> get();
+    RequestHeadersUriSpec<?> head();
+    RequestBodyUriSpec post();
+    RequestBodyUriSpec put();
+    RequestBodyUriSpec delete();
+}
+
+
+
+
+
+WebClient client = WebClient.create("https://api.example.com");
+//   ↑ interface    ↑ internally DefaultWebClient instance return hota hai

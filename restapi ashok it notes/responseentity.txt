@@ -1,0 +1,11 @@
+Your Controller
+      ↓
+DispatcherServlet
+      ↓
+HandlerAdapter (processes ResponseEntity)
+      ↓
+HttpMessageConverter (body → JSON)
+      ↓
+HttpServletResponse (sets 200, headers, body)
+      ↓
+Client ko response milta hai

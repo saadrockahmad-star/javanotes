@@ -1,0 +1,13 @@
+Step 1: You create thread → JVM handles creation
+
+Step 2: JVM asks OS → "please run this thread"
+
+Step 3: OS decides → which thread gets CPU
+
+Step 4: Thread starts running
+
+Step 5: JVM updates → current_running_thread
+
+Step 6: Your code calls → Thread.currentThread()
+
+Step 7: JVM returns → currently running thread

@@ -1,0 +1,98 @@
+Situation Setup
+
+We have 2 threads:
+
+Thread-1 → did wait()
+Thread-2 → will do notify()
+Step-by-Step (Focus Area Only)
+Step 1: Thread-1 calls wait()
+Thread-1:
+→ releases lock
+→ goes to WAITING ❌
+
+Now lock is free.
+
+Step 2: Thread-2 enters
+synchronized(obj) {
+    obj.notify();
+}
+Thread-2:
+→ takes lock
+→ calls notify()
+NOW YOUR CONFUSION POINT
+
+After notify():
+
+Thread-1:
+WAITING → READY (RUNNABLE)
+
+👉 Means:
+
+Thread-1 is now "eligible to run"
+BUT…
+IMPORTANT PART
+Thread-2 STILL holds the lock 🔒
+
+👉 So:
+
+Thread-1 cannot run yet ❌
+Why?
+
+Because:
+
+To run inside synchronized block → thread MUST have lock
+Step 3: Thread-2 finishes
+Thread-2:
+→ exits synchronized block
+→ releases lock 🔓
+Step 4: Now Thread-1 runs
+Thread-1:
+→ takes lock
+→ continues after wait()
+→ runs ✅
+VERY SIMPLE ANALOGY
+Lock = Bathroom 🔒
+Threads = People
+Scene:
+Thread-1:
+→ inside bathroom
+→ says "I will wait outside" (wait)
+→ leaves key 🔑
+→ stands outside
+Thread-2:
+→ enters bathroom
+→ shouts "You can come now!" (notify)
+
+BUT…
+
+Thread-2 still inside bathroom 🚫
+Thread-1:
+→ heard the message
+→ ready to go
+→ BUT cannot enter (door locked)
+Thread-2 leaves 🚪
+→ releases lock
+Thread-1 enters now ✅
+Key Line (Your Confusion Answer)
+notify() makes thread READY,
+but it cannot RUN until lock is free
+One-Line Final Answer
+
+Thread becomes RUNNABLE after notify(), but it starts running only after it reacquires the lock.
+
+If you want, I can next:
+
+Show this using actual thread states (WAITING → BLOCKED → RUNNABLE)
+Or draw diagram (very clear visual)
+
+
+
+
+Child:
+→ wakes Main thread
+→ Main moves WAITING → READY
+→ but NOT running yet ❌
+
+
+}  important of curly braces  point Child → exits synchronized
+→ releases lock 🔓

@@ -1,0 +1,274 @@
+
+<style>
+  .step-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1rem; }
+  .step-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--color-background-info); color: var(--color-text-info); display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 14px; flex-shrink: 0; }
+  .step-title { font-weight: 500; font-size: 15px; color: var(--color-text-primary); }
+  .step-sub { font-size: 13px; color: var(--color-text-secondary); margin-top: 2px; }
+  .mock-screen { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px; margin-top: 10px; }
+  .mock-topbar { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+  .mock-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .mock-url { font-size: 11px; color: var(--color-text-tertiary); background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; padding: 2px 8px; flex: 1; }
+  .mock-btn { font-size: 12px; padding: 4px 12px; border-radius: 6px; border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-primary); cursor: default; }
+  .mock-btn.primary { background: var(--color-background-info); color: var(--color-text-info); border-color: transparent; }
+  .mock-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px; margin-top: 8px; }
+  .mock-input { background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: 6px; padding: 5px 8px; font-size: 12px; color: var(--color-text-primary); width: 100%; box-sizing: border-box; }
+  .mock-input.filled { color: var(--color-text-info); }
+  .mock-row { display: flex; gap: 8px; align-items: center; margin-top: 6px; }
+  .mock-tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; background: var(--color-background-success); color: var(--color-text-success); }
+  .mock-tag.info { background: var(--color-background-info); color: var(--color-text-info); }
+  .mock-tag.warn { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .kv-row { display: flex; gap: 8px; font-size: 12px; padding: 5px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .kv-key { color: var(--color-text-info); font-family: var(--font-mono); min-width: 130px; }
+  .kv-val { color: var(--color-text-primary); font-family: var(--font-mono); }
+  .kv-ttl { color: var(--color-text-secondary); font-size: 11px; margin-left: auto; }
+  .nav-item { font-size: 12px; padding: 5px 10px; border-radius: 6px; color: var(--color-text-secondary); cursor: default; }
+  .nav-item.active { background: var(--color-background-info); color: var(--color-text-info); }
+  .sidebar { width: 120px; flex-shrink: 0; }
+  .content { flex: 1; }
+  .code-block { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 6px; padding: 10px; font-family: var(--font-mono); font-size: 11px; color: var(--color-text-primary); margin-top: 8px; line-height: 1.6; }
+  .code-key { color: #3B8BD4; }
+  .code-val { color: #1D9E75; }
+  .code-ann { color: var(--color-text-tertiary); }
+  .step-done { color: var(--color-text-success); font-size: 12px; margin-top: 6px; display: flex; align-items: center; gap: 4px; }
+  .progress { display: flex; gap: 6px; margin-bottom: 1.5rem; justify-content: center; }
+  .prog-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-border-secondary); }
+  .prog-dot.done { background: var(--color-text-success); }
+  .prog-dot.active { background: var(--color-text-info); }
+</style>
+
+<h2 class="sr-only">Step-by-step guide to setting up a User database in Redis Cloud and connecting it to a Java project</h2>
+
+<div style="padding: 1rem 0;">
+
+  <div style="font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Redis Cloud — User DB setup guide</div>
+  <div style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1.5rem;">Step-by-step: from account to Java integration</div>
+
+  <!-- STEP 1 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Sign in to Redis Cloud</div>
+        <div class="step-sub">Go to app.redislabs.com and log in</div>
+      </div>
+    </div>
+    <div class="mock-screen">
+      <div class="mock-topbar">
+        <div class="mock-dot" style="background:#e24b4a"></div>
+        <div class="mock-dot" style="background:#ef9f27"></div>
+        <div class="mock-dot" style="background:#639922"></div>
+        <div class="mock-url">app.redislabs.com</div>
+      </div>
+      <div style="text-align:center; padding: 8px 0;">
+        <div style="font-size:13px; font-weight:500; margin-bottom:10px; color:var(--color-text-primary);">Sign in to Redis Cloud</div>
+        <div class="mock-label" style="text-align:left">Email</div>
+        <div class="mock-input filled">yourname@gmail.com</div>
+        <div class="mock-label" style="text-align:left">Password</div>
+        <div class="mock-input filled">••••••••••</div>
+        <div style="margin-top:10px"><button class="mock-btn primary" style="width:100%">Sign In</button></div>
+      </div>
+    </div>
+    <div class="step-done">✓ You will land on the Redis Cloud Dashboard</div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Create a new Subscription</div>
+        <div class="step-sub">Click "New subscription" → choose Free tier</div>
+      </div>
+    </div>
+    <div class="mock-screen">
+      <div style="display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap;">
+        <div class="nav-item active">Dashboard</div>
+        <div class="nav-item">Subscriptions</div>
+        <div class="nav-item">Databases</div>
+        <div class="nav-item">Access</div>
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">My Subscriptions</div>
+        <button class="mock-btn primary">+ New subscription</button>
+      </div>
+      <div style="font-size:11px; color:var(--color-text-tertiary); text-align:center; padding:16px 0;">No subscriptions yet. Click "New subscription" to start.</div>
+    </div>
+    <div class="step-done">✓ Select "Free" plan → 30MB free database included</div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Create a Database</div>
+        <div class="step-sub">Name it "UserDB" and set a password</div>
+      </div>
+    </div>
+    <div class="mock-screen">
+      <div style="font-size:12px; font-weight:500; margin-bottom:8px; color:var(--color-text-primary);">New Database</div>
+      <div class="mock-label">Database name</div>
+      <div class="mock-input filled">UserDB</div>
+      <div class="mock-label">Data persistence</div>
+      <div class="mock-input filled">None (in-memory only)</div>
+      <div class="mock-label">Password</div>
+      <div class="mock-input filled">••••••••••••</div>
+      <div class="mock-label">Eviction policy</div>
+      <div class="mock-input filled">noeviction</div>
+      <div style="margin-top:10px; display:flex; gap:8px;">
+        <button class="mock-btn">Cancel</button>
+        <button class="mock-btn primary">Activate database</button>
+      </div>
+    </div>
+    <div class="step-done">✓ Database will be created in ~1 minute</div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Copy Your Credentials</div>
+        <div class="step-sub">Save endpoint, port & password — you'll need these</div>
+      </div>
+    </div>
+    <div class="mock-screen">
+      <div style="font-size:12px; font-weight:500; margin-bottom:8px; color:var(--color-text-primary);">UserDB — Configuration</div>
+      <div class="kv-row">
+        <div class="kv-key">Endpoint</div>
+        <div class="kv-val" style="font-size:11px;">redis-12345.c1.us-east-1-2.ec2.cloud.redislabs.com</div>
+      </div>
+      <div class="kv-row">
+        <div class="kv-key">Port</div>
+        <div class="kv-val">12345</div>
+      </div>
+      <div class="kv-row">
+        <div class="kv-key">Password</div>
+        <div class="kv-val">••••••••  <span style="font-size:11px; color:var(--color-text-info); cursor:pointer">Show</span></div>
+      </div>
+      <div class="kv-row">
+        <div class="kv-key">TLS</div>
+        <div class="kv-val"><span class="mock-tag">Enabled</span></div>
+      </div>
+      <div class="kv-row">
+        <div class="kv-key">Status</div>
+        <div class="kv-val"><span class="mock-tag">Active</span></div>
+      </div>
+    </div>
+    <div class="step-done">✓ Copy endpoint + port + password to your notes</div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">5</div>
+      <div>
+        <div class="step-title">Add to application.properties</div>
+        <div class="step-sub">Paste credentials into your Spring Boot config</div>
+      </div>
+    </div>
+    <div class="code-block">
+<span class="code-ann"># application.properties</span><br>
+<span class="code-key">spring.redis.host</span>=<span class="code-val">redis-12345.c1.us-east-1-2.ec2.cloud.redislabs.com</span><br>
+<span class="code-key">spring.redis.port</span>=<span class="code-val">12345</span><br>
+<span class="code-key">spring.redis.password</span>=<span class="code-val">your_password_here</span><br>
+<span class="code-key">spring.redis.ssl</span>=<span class="code-val">true</span>
+    </div>
+    <div class="step-done">✓ SSL must be true for Redis Cloud connections</div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">6</div>
+      <div>
+        <div class="step-title">Annotate your User Entity</div>
+        <div class="step-sub">Add @RedisHash to map User to Redis</div>
+      </div>
+    </div>
+    <div class="code-block">
+<span class="code-ann">// User.java</span><br>
+<span class="code-key">@RedisHash</span>(<span class="code-val">"User"</span>)  <span class="code-ann">← stores as User:{id}</span><br>
+<span class="code-key">public class</span> User <span class="code-key">implements</span> Serializable {<br>
+&nbsp;&nbsp;<span class="code-key">@Id</span><br>
+&nbsp;&nbsp;<span class="code-key">private</span> String id;<br>
+&nbsp;&nbsp;<span class="code-key">private</span> String name;<br>
+&nbsp;&nbsp;<span class="code-key">private</span> String email;<br>
+&nbsp;&nbsp;<span class="code-key">@TimeToLive</span><br>
+&nbsp;&nbsp;<span class="code-key">private</span> Long expiration = <span class="code-val">600L</span>; <span class="code-ann">← 10 min TTL</span><br>
+}
+    </div>
+    <div class="step-done">✓ Each User stored as → User:101, User:102...</div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">7</div>
+      <div>
+        <div class="step-title">Create Redis CrudRepository</div>
+        <div class="step-sub">Extends CrudRepository for free CRUD operations</div>
+      </div>
+    </div>
+    <div class="code-block">
+<span class="code-ann">// UserRedisRepository.java</span><br>
+<span class="code-key">@Repository</span><br>
+<span class="code-key">public interface</span> UserRedisRepository<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-key">extends</span> CrudRepository&lt;User, String&gt; {<br>
+<span class="code-ann">&nbsp;&nbsp;// save() findById() delete() — all free!</span><br>
+}
+    </div>
+    <div class="step-done">✓ No extra code needed — Spring Data handles it</div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="step-card">
+    <div class="step-header">
+      <div class="step-num">8</div>
+      <div>
+        <div class="step-title">Verify in Redis Cloud Console</div>
+        <div class="step-sub">Check that User keys appear after saving</div>
+      </div>
+    </div>
+    <div class="mock-screen">
+      <div style="font-size:12px; font-weight:500; margin-bottom:8px; color:var(--color-text-primary);">UserDB — Data Browser</div>
+      <div class="mock-input" style="margin-bottom:8px; font-size:11px;">🔍  Search keys...</div>
+      <div class="kv-row" style="font-size:11px; color:var(--color-text-secondary); font-weight:500; border-bottom: 0.5px solid var(--color-border-secondary);">
+        <div style="min-width:130px">Key</div>
+        <div style="flex:1">Value</div>
+        <div>TTL</div>
+      </div>
+      <div class="kv-row">
+        <div class="kv-key">User:101</div>
+        <div class="kv-val">{ name: "Raj", email: "raj@..." }</div>
+        <div class="kv-ttl">598s</div>
+      </div>
+      <div class="kv-row">
+        <div class="kv-key">User:102</div>
+        <div class="kv-val">{ name: "Priya", email: "p@..." }</div>
+        <div class="kv-ttl">541s</div>
+      </div>
+      <div class="kv-row">
+        <div class="kv-key">User:103</div>
+        <div class="kv-val">{ name: "Aman", email: "a@..." }</div>
+        <div class="kv-ttl">600s</div>
+      </div>
+    </div>
+    <div class="step-done">✓ If you see User keys here, your setup is complete!</div>
+  </div>
+
+  <!-- Summary -->
+  <div style="background: var(--color-background-success); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-top: 0.5rem;">
+    <div style="font-size:14px; font-weight:500; color:var(--color-text-success); margin-bottom:8px;">Setup complete!</div>
+    <div style="font-size:12px; color:var(--color-text-success); line-height:1.8;">
+      ✓ Redis Cloud account created<br>
+      ✓ UserDB database live<br>
+      ✓ Credentials added to Spring Boot<br>
+      ✓ User entity mapped with @RedisHash<br>
+      ✓ CrudRepository connected<br>
+      ✓ Users visible in Data Browser
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,5 @@
+Quick Method Cheat Sheet
+MethodUsegetForObject()GET → direct objectgetForEntity()
+GET → ResponseEntity (status + body)postForObject()
+POST → returns bodyput()PUT → no returndelete()
+DELETE → no returnexchange()Any method + custom headers
